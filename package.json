@@ -1,0 +1,11 @@
+{
+  "name": "carparts-b2b-demo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node src/server.js",
+    "lint": "node scripts/lint.mjs",
+    "test": "node -e \"require('fs').mkdirSync('reports',{recursive:true})\" && node --test --test-reporter=junit --test-reporter-destination=reports/junit.xml"
+  },
+  "engines": { "node": ">=22" }
+}

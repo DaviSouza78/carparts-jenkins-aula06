@@ -1,0 +1,56 @@
+name: carparts-jenkins-lab
+services:
+  docker:
+    image: docker:27-dind
+    privileged: true
+    environment:
+      DOCKER_TLS_CERTDIR: /certs
+    volumes:
+      - docker-certs:/certs/client
+      - docker-data:/var/lib/docker
+    networks: [ci]
+    healthcheck:
+      test: ["CMD", "docker", "-H", "tcp://localhost:2376", "--tlsverify", "--tlscacert=/certs/client/ca.pem", "--tlscert=/certs/client/cert.pem", "--tlskey=/certs/client/key.pem", "info"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+  jenkins:
+    build: ./jenkins/controller
+    environment:
+      JENKINS_ADMIN_PASSWORD: ${JENKINS_ADMIN_PASSWORD:?Configure no arquivo local .env}
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - jenkins-data:/var/jenkins_home
+      - ./jenkins/controller/casc.yaml:/jenkins-config/casc.yaml:ro
+    networks: [ci]
+    restart: unless-stopped
+  agent:
+    profiles: [agent]
+    build: ./jenkins/agent
+    environment:
+      JENKINS_URL: http://jenkins:8080/
+      JENKINS_AGENT_NAME: linux-docker
+      JENKINS_SECRET: ${JENKINS_AGENT_SECRET:-}
+      JENKINS_WEB_SOCKET: "true"
+      DOCKER_HOST: tcp://docker:2376
+      DOCKER_TLS_VERIFY: "1"
+      DOCKER_CERT_PATH: /certs/client
+    volumes:
+      - docker-certs:/certs/client:ro
+      - agent-workspace:/home/jenkins/agent
+      - ./:/project:ro
+    depends_on:
+      docker:
+        condition: service_healthy
+      jenkins:
+        condition: service_started
+    networks: [ci]
+    restart: unless-stopped
+networks:
+  ci:
+volumes:
+  docker-certs:
+  docker-data:
+  jenkins-data:
+  agent-workspace:

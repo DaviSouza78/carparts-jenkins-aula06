@@ -1,0 +1,9 @@
+.env
+.runtime/
+evidence/live/
+node_modules/
+reports/
+*.log
+__pycache__/
+*.pyc
+

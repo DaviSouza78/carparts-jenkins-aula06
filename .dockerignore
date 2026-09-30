@@ -1,0 +1,9 @@
+.git
+.env
+evidence
+node_modules
+reports
+jenkins
+azure
+docs
+

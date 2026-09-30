@@ -1,0 +1,53 @@
+# Carparts · projeto Jenkins CI/CD (Aula 06)
+
+Projeto demonstrativo produzido para a atividade SAP1-DEVOPS, com API Node.js e front-end simples, Jenkins autogerenciado em Docker, configuração JCasC, agent Linux separado, Jenkinsfile declarativo e roteiro Azure/GitHub.
+
+## Estado verificado em 30/09/2026
+
+| Entregável | Material | Evidência |
+|---|---|---|
+| E1 Arquitetura | `docs/E1-arquitetura.md`, `compose.yaml` | Controller local e agent Linux online; `evidence/live/nodes.json` mostra 0/2 executores |
+| E2 Controller | `jenkins/controller/Dockerfile`, `plugins.txt`, `casc.yaml` | Subida real em `evidence/live/controller-startup.log`; plugins diretos fixados por versão; sem acesso anônimo; nó interno com 0 executores |
+| E3 Pipeline | `Jenkinsfile`, `Dockerfile`, `src/`, `test/` | Dez builds locais consecutivos bem-sucedidos (#2–#11), quatro testes publicados no build #11, logs e artefato em `evidence/live/` |
+| E4 Azure | `azure/provision.sh`, `docs/E4-azure.md`, stages Azure no Jenkinsfile | Configuração e comandos prontos; **deploy remoto ainda não executado** |
+| E5 Multibranch | `docs/E5-github.md`, `infra/nginx-webhook.conf` | Configuração documentada; **webhook, PR e proteção remotos ainda não executados** |
+| E6 Métricas | `scripts/metrics.py`, `docs/E6-metricas.md` | Primeira amostra de 11 builds locais: 10 sucessos, mediana 5,1 s; **métricas de produção pendentes** |
+
+A primeira execução falhou porque a opção `timestamps()` exigia um plugin não instalado. A opção foi removida, e as dez execuções seguintes passaram. Isso está preservado nos dados e logs; nenhuma implantação Azure ou revisão de PR foi simulada como execução real.
+
+## Rodar localmente
+
+Pré-requisito: Docker Desktop com Linux containers e Python 3 para o coletor. Na pasta do projeto, execute no PowerShell:
+
+```powershell
+./scripts/start-lab.ps1 -Rebuild
+python ./scripts/lab_runs.py --count 10
+python ./scripts/metrics.py ./evidence/live/builds.json
+```
+
+O script cria `.env` com senha aleatória, inicia Jenkins e Docker-in-Docker, obtém o segredo do agent e o conecta. `.env` e `.runtime/` são ignorados pelo Git. A interface fica em `http://127.0.0.1:8080/` e exige login `admin` com a senha de `.env`. O serviço não é publicado em uma interface externa. Faça backup do volume `jenkins-data` antes de atualizar o controller; teste nova versão LTS e plugins em cópia antes de aplicar no ambiente principal.
+
+Para testar apenas a aplicação:
+
+```powershell
+docker build --target test -t carparts-test:local .
+docker build --target production -t carparts-b2b-demo:local .
+docker run --rm -p 127.0.0.1:3000:3000 carparts-b2b-demo:local
+```
+
+`GET http://127.0.0.1:3000/health` retorna `{"status":"ok",...}`. `POST /api/orders` com `{"part":"Filtro","quantity":2}` cria um pedido apenas em memória. É um protótipo de pipeline, sem dados reais do ERP.
+
+## Habilitar Azure e GitHub
+
+Leia `docs/E4-azure.md` e `docs/E5-github.md`. Antes de provisionar, confirme uma assinatura Azure autorizada, orçamento e a oferta de preços. `azure/provision.sh` cria recursos que podem gerar cobrança; revise nomes e permissões antes da execução. Importe o segredo do service principal para o cofre Jenkins e remova o arquivo local; nunca inclua credenciais em commits, parâmetros de build ou logs. A publicação no Jenkinsfile só roda na branch `main` com `ENABLE_AZURE_DEPLOY=true`. O gate de produção exige aprovação identificada e promove o mesmo digest validado em homologação.
+
+O Multibranch e o webhook dependem de um repositório GitHub da equipe e de um domínio HTTPS controlado. `infra/nginx-webhook.conf` é um modelo que expõe somente o endpoint de webhook, não a interface Jenkins. Configure o segredo HMAC no GitHub/Jenkins e a proteção de `main` antes de ativar deploy.
+
+## Evidências e limites
+
+- `evidence/live/builds.json`: histórico da API Jenkins; `console-N.txt`: saída de cada build de laboratório.
+- `evidence/live/nodes.json`: executores do controller e agent; `test-report-11.json`: quatro testes, zero falhas; `build-artifact-11.json`: commit e imagem.
+- `evidence/live/app-smoke.json`: API iniciada em contêiner e endpoints verificados localmente.
+- `evidence/live/azure-prices-2026-09-30.json`: leitura da API oficial de preços em Brasil Sul. É referência de planejamento, não fatura.
+
+O material didático mais antigo (`Jenkins.pdf`) explica a automação e a ideia de pipeline, mas mostra fluxos Freestyle e Docker desatualizados. O PDF *Modern Jenkins Pipelines* sustenta pipeline como código, JCasC, controller/agents e integração Azure CLI. Para sintaxe e instalação atuais, confirme nas fontes oficiais: [Jenkins Docker](https://www.jenkins.io/doc/book/installing/docker/), [Pipeline Syntax](https://www.jenkins.io/doc/book/pipeline/syntax/), [JCasC](https://github.com/jenkinsci/configuration-as-code-plugin), [Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/), [cobrança Azure](https://learn.microsoft.com/en-us/azure/container-apps/billing).
