@@ -9,8 +9,8 @@ Projeto demonstrativo produzido para a atividade SAP1-DEVOPS, com API Node.js e 
 | E1 Arquitetura | `docs/E1-arquitetura.md`, `compose.yaml` | Controller local e agent Linux online; `evidence/live/nodes.json` mostra 0/2 executores |
 | E2 Controller | `jenkins/controller/Dockerfile`, `plugins.txt`, `casc.yaml` | Subida real em `evidence/live/controller-startup.log`; plugins diretos fixados por versão; sem acesso anônimo; nó interno com 0 executores |
 | E3 Pipeline | `Jenkinsfile`, `Dockerfile`, `src/`, `test/` | Onze builds locais consecutivos bem-sucedidos (#2–#12), quatro testes publicados no build #12, logs e artefato em `evidence/live/` |
-| E4 Azure | `azure/provision.sh`, `docs/E4-azure.md`, stages Azure no Jenkinsfile | Configuração e comandos prontos; **deploy remoto ainda não executado** |
-| E5 Multibranch | `docs/E5-github.md`, `infra/nginx-webhook.conf` | [Repositório privado criado](https://github.com/DaviSouza78/carparts-jenkins-aula06); **webhook e check Jenkins remotos ainda não executados** |
+| E4 Azure | `azure/provision.sh`, `docs/E4-azure.md`, stages Azure no Jenkinsfile | Portal acessado; sem assinatura; **deploy remoto ainda não executado** |
+| E5 Multibranch | `docs/E5-github.md`, `infra/nginx-webhook.conf` | [Repositório privado](https://github.com/DaviSouza78/carparts-jenkins-aula06) e [PR #1](https://github.com/DaviSouza78/carparts-jenkins-aula06/pull/1) abertos; **webhook e check Jenkins remotos ainda não executados** |
 | E6 Métricas | `scripts/metrics.py`, `docs/E6-metricas.md` | Amostra atual de 12 builds locais: 11 sucessos, mediana 5,1 s; **métricas de produção pendentes** |
 
 A primeira execução falhou porque a opção `timestamps()` exigia um plugin não instalado. A opção foi removida, e as onze execuções seguintes passaram. Isso está preservado nos dados e logs; nenhuma implantação Azure foi simulada como execução real.
