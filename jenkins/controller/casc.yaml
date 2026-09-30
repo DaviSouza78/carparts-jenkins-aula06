@@ -1,0 +1,32 @@
+jenkins:
+  systemMessage: "Carparts CI/CD - controller configurado por código"
+  numExecutors: 0
+  mode: EXCLUSIVE
+  slaveAgentPort: -1
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: admin
+          password: ${JENKINS_ADMIN_PASSWORD}
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+  nodes:
+    - permanent:
+        name: linux-docker
+        nodeDescription: "Agent Linux isolado para CI/CD"
+        remoteFS: /home/jenkins/agent
+        labelString: "linux docker"
+        numExecutors: 2
+        mode: EXCLUSIVE
+        launcher:
+          inbound:
+            workDirSettings:
+              disabled: false
+              failIfWorkDirIsMissing: false
+              internalDir: remoting
+              workDirPath: /home/jenkins/agent
+unclassified:
+  location:
+    url: http://localhost:8080/
