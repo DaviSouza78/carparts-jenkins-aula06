@@ -1,0 +1,12 @@
+# E4 · Azure com credenciais de escopo mínimo
+
+O fluxo usa Azure Container Registry (ACR) e dois Azure Container Apps em um grupo de recursos dedicado. O Jenkins não armazena senha no repositório: `azure-sp` é uma credencial *username/password* (client ID + secret), `azure-tenant` e `azure-subscription` são *secret text*. Uma alternativa preferível em agent hospedado na Azure é identidade gerenciada, eliminando o segredo do service principal; neste laboratório o agent local exige uma identidade federada ou SP.
+
+1. Em uma assinatura Azure autorizada, crie o grupo de recursos e o ACR Basic. Crie os dois Container Apps com 0,25 vCPU, 0,5 GiB e consumo/escala compatíveis com a carga real. Não configure mínimos que gerem custo 24h sem necessidade.
+2. Configure identidade gerenciada para cada app e atribua `AcrPull` apenas no ACR. O Jenkins recebe `AcrPush` no ACR e `Container Apps Contributor` nos dois apps, nunca no escopo da assinatura. O arquivo `azure/provision.sh` mostra os comandos e grava o segredo inicial somente em `.runtime/` ignorado pelo Git.
+3. No Multibranch, configure os parâmetros não secretos (ACR, grupo, nomes dos apps e URL de homologação). Coloque o service principal no cofre de credenciais Jenkins. O pipeline usa `withCredentials`, desliga o eco do shell e passa variáveis ao contêiner da Azure CLI, sem interpolar o segredo em Groovy.
+4. A branch `main` constrói a imagem uma vez, publica no ACR com tag `build-commit`, captura o digest `sha256`, atualiza homologação por `az containerapp update --image`, e testa `GET /health` por HTTPS. Um `input` restrito a aprovadores registra o usuário antes de promover o **mesmo digest** a produção.
+5. Para rollback, consulte `az containerapp revision list` e restaure o digest da revisão anterior via `az containerapp update --image`. Registre incidente, revisões, commit e novo aprovador. Nunca recompilar durante promoção ou rollback.
+
+**Estado da evidência:** o Jenkinsfile e a aplicação foram preparados; a implantação Azure depende de acesso à assinatura e de recursos autorizados. Não há log de deploy remoto neste pacote. Fontes: [identidade gerenciada e AcrPull](https://learn.microsoft.com/en-us/azure/container-apps/managed-identity-image-pull), [revisões e rollback](https://learn.microsoft.com/en-us/azure/container-apps/revisions-manage), [papel Container Apps Contributor](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/containers).
+
