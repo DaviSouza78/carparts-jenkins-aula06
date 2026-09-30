@@ -1,0 +1,5 @@
+{
+  "anonymousApiHttpStatus": 403,
+  "expected": "401, 403 ou redirecionamento para login",
+  "controller": "127.0.0.1:8080"
+}

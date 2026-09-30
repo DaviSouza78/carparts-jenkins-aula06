@@ -1,0 +1,113 @@
+{
+  "_class": "org.jenkinsci.plugins.workflow.job.WorkflowJob",
+  "builds": [
+    {
+      "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+      "building": false,
+      "duration": 12421,
+      "number": 12,
+      "result": "SUCCESS",
+      "timestamp": 1790806075595,
+      "url": "http://localhost:8080/job/carparts-lab/12/"
+    },
+    {
+      "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+      "building": false,
+      "duration": 5060,
+      "number": 11,
+      "result": "SUCCESS",
+      "timestamp": 1790805647298,
+      "url": "http://localhost:8080/job/carparts-lab/11/"
+    },
+    {
+      "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+      "building": false,
+      "duration": 4978,
+      "number": 10,
+      "result": "SUCCESS",
+      "timestamp": 1790805632291,
+      "url": "http://localhost:8080/job/carparts-lab/10/"
+    },
+    {
+      "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+      "building": false,
+      "duration": 4975,
+      "number": 9,
+      "result": "SUCCESS",
+      "timestamp": 1790805617290,
+      "url": "http://localhost:8080/job/carparts-lab/9/"
+    },
+    {
+      "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+      "building": false,
+      "duration": 5042,
+      "number": 8,
+      "result": "SUCCESS",
+      "timestamp": 1790805602288,
+      "url": "http://localhost:8080/job/carparts-lab/8/"
+    },
+    {
+      "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+      "building": false,
+      "duration": 5269,
+      "number": 7,
+      "result": "SUCCESS",
+      "timestamp": 1790805587287,
+      "url": "http://localhost:8080/job/carparts-lab/7/"
+    },
+    {
+      "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+      "building": false,
+      "duration": 6023,
+      "number": 6,
+      "result": "SUCCESS",
+      "timestamp": 1790805572290,
+      "url": "http://localhost:8080/job/carparts-lab/6/"
+    },
+    {
+      "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+      "building": false,
+      "duration": 5105,
+      "number": 5,
+      "result": "SUCCESS",
+      "timestamp": 1790805557285,
+      "url": "http://localhost:8080/job/carparts-lab/5/"
+    },
+    {
+      "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+      "building": false,
+      "duration": 5193,
+      "number": 4,
+      "result": "SUCCESS",
+      "timestamp": 1790805542281,
+      "url": "http://localhost:8080/job/carparts-lab/4/"
+    },
+    {
+      "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+      "building": false,
+      "duration": 8618,
+      "number": 3,
+      "result": "SUCCESS",
+      "timestamp": 1790805527280,
+      "url": "http://localhost:8080/job/carparts-lab/3/"
+    },
+    {
+      "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+      "building": false,
+      "duration": 21795,
+      "number": 2,
+      "result": "SUCCESS",
+      "timestamp": 1790805432263,
+      "url": "http://localhost:8080/job/carparts-lab/2/"
+    },
+    {
+      "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+      "building": false,
+      "duration": 1026,
+      "number": 1,
+      "result": "FAILURE",
+      "timestamp": 1790805412263,
+      "url": "http://localhost:8080/job/carparts-lab/1/"
+    }
+  ]
+}

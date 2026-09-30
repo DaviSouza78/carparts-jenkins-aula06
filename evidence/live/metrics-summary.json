@@ -1,0 +1,27 @@
+{
+  "ci": {
+    "builds": 12,
+    "success": 11,
+    "success_rate_percent": 91.7,
+    "median_duration_seconds": 5.1,
+    "first_build_utc": "2026-09-30T21:56:52.263000+00:00",
+    "last_build_utc": "2026-09-30T22:07:55.595000+00:00",
+    "results": {
+      "1": "FAILURE",
+      "2": "SUCCESS",
+      "3": "SUCCESS",
+      "4": "SUCCESS",
+      "5": "SUCCESS",
+      "6": "SUCCESS",
+      "7": "SUCCESS",
+      "8": "SUCCESS",
+      "9": "SUCCESS",
+      "10": "SUCCESS",
+      "11": "SUCCESS",
+      "12": "SUCCESS"
+    }
+  },
+  "production": {
+    "status": "sem deploys de produ��o observados"
+  }
+}

@@ -1,0 +1,462 @@
+agent-1  | Sep 30, 2026 9:55:36 PM hudson.remoting.Launcher createEngine
+agent-1  | INFO: Setting up agent: linux-docker
+agent-1  | Sep 30, 2026 9:55:36 PM hudson.remoting.Engine startEngine
+agent-1  | INFO: Using Remoting version: 3391.va_37fa_a_305d6d
+agent-1  | Sep 30, 2026 9:55:36 PM hudson.remoting.Engine startEngine
+agent-1  | WARNING: No Working Directory. Using the legacy JAR Cache location: /home/jenkins/.jenkins/cache/jars
+agent-1  | Sep 30, 2026 9:55:36 PM hudson.remoting.Launcher$CuiListener status
+agent-1  | INFO: WebSocket connection open
+agent-1  | Sep 30, 2026 9:55:36 PM hudson.remoting.Launcher$CuiListener status
+agent-1  | INFO: Connected
+agent-1  | Sep 30, 2026 10:07:31 PM hudson.remoting.Launcher$CuiListener status
+agent-1  | INFO: Read side closed
+agent-1  | Sep 30, 2026 10:07:31 PM hudson.remoting.Launcher$CuiListener status
+agent-1  | INFO: Terminated
+agent-1  | Sep 30, 2026 10:07:31 PM hudson.remoting.Launcher$CuiListener status
+agent-1  | INFO: Performing onReconnect operation.
+agent-1  | Sep 30, 2026 10:07:32 PM jenkins.slaves.restarter.JnlpSlaveRestarterInstaller$EngineListenerAdapterImpl onReconnect
+agent-1  | INFO: Restarting agent via jenkins.slaves.restarter.UnixSlaveRestarter@71b859fd
+agent-1  | Sep 30, 2026 10:07:32 PM hudson.remoting.ProxyOutputStream$CleanupState cleanup
+agent-1  | WARNING: Failed to unexport ProxyOutputStream
+agent-1  | hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Channel.send(Channel.java:830)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupState.cleanup(ProxyOutputStream.java:486)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupChecker.run(ProxyOutputStream.java:505)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl$PhantomCleanableRef.performCleanup(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.PhantomCleanable.clean(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl.run(Unknown Source)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.misc.InnocuousThread.run(Unknown Source)
+agent-1  | Caused by: hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Engine$1AgentEndpoint.lambda$onClose$1(Engine.java:727)
+agent-1  | 	at hudson.remoting.InterceptingExecutorService.lambda$wrap$0(InterceptingExecutorService.java:81)
+agent-1  | 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+agent-1  | 	at hudson.remoting.Engine$1.lambda$newThread$0(Engine.java:312)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 
+agent-1  | Sep 30, 2026 10:07:32 PM hudson.remoting.ProxyOutputStream$CleanupState cleanup
+agent-1  | WARNING: Failed to unexport ProxyOutputStream
+agent-1  | hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Channel.send(Channel.java:830)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupState.cleanup(ProxyOutputStream.java:486)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupChecker.run(ProxyOutputStream.java:505)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl$PhantomCleanableRef.performCleanup(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.PhantomCleanable.clean(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl.run(Unknown Source)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.misc.InnocuousThread.run(Unknown Source)
+agent-1  | Caused by: hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Engine$1AgentEndpoint.lambda$onClose$1(Engine.java:727)
+agent-1  | 	at hudson.remoting.InterceptingExecutorService.lambda$wrap$0(InterceptingExecutorService.java:81)
+agent-1  | 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+agent-1  | 	at hudson.remoting.Engine$1.lambda$newThread$0(Engine.java:312)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 
+agent-1  | Sep 30, 2026 10:07:32 PM hudson.remoting.ProxyOutputStream$CleanupState cleanup
+agent-1  | WARNING: Failed to unexport ProxyOutputStream
+agent-1  | hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Channel.send(Channel.java:830)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupState.cleanup(ProxyOutputStream.java:486)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupChecker.run(ProxyOutputStream.java:505)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl$PhantomCleanableRef.performCleanup(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.PhantomCleanable.clean(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl.run(Unknown Source)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.misc.InnocuousThread.run(Unknown Source)
+agent-1  | Caused by: hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Engine$1AgentEndpoint.lambda$onClose$1(Engine.java:727)
+agent-1  | 	at hudson.remoting.InterceptingExecutorService.lambda$wrap$0(InterceptingExecutorService.java:81)
+agent-1  | 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+agent-1  | 	at hudson.remoting.Engine$1.lambda$newThread$0(Engine.java:312)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 
+agent-1  | Sep 30, 2026 10:07:32 PM hudson.remoting.ProxyOutputStream$CleanupState cleanup
+agent-1  | WARNING: Failed to unexport ProxyOutputStream
+agent-1  | hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Channel.send(Channel.java:830)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupState.cleanup(ProxyOutputStream.java:486)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupChecker.run(ProxyOutputStream.java:505)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl$PhantomCleanableRef.performCleanup(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.PhantomCleanable.clean(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl.run(Unknown Source)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.misc.InnocuousThread.run(Unknown Source)
+agent-1  | Caused by: hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Engine$1AgentEndpoint.lambda$onClose$1(Engine.java:727)
+agent-1  | 	at hudson.remoting.InterceptingExecutorService.lambda$wrap$0(InterceptingExecutorService.java:81)
+agent-1  | 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+agent-1  | 	at hudson.remoting.Engine$1.lambda$newThread$0(Engine.java:312)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 
+agent-1  | Sep 30, 2026 10:07:32 PM hudson.remoting.ProxyOutputStream$CleanupState cleanup
+agent-1  | WARNING: Failed to unexport ProxyOutputStream
+agent-1  | hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Channel.send(Channel.java:830)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupState.cleanup(ProxyOutputStream.java:486)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupChecker.run(ProxyOutputStream.java:505)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl$PhantomCleanableRef.performCleanup(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.PhantomCleanable.clean(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl.run(Unknown Source)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.misc.InnocuousThread.run(Unknown Source)
+agent-1  | Caused by: hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Engine$1AgentEndpoint.lambda$onClose$1(Engine.java:727)
+agent-1  | 	at hudson.remoting.InterceptingExecutorService.lambda$wrap$0(InterceptingExecutorService.java:81)
+agent-1  | 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+agent-1  | 	at hudson.remoting.Engine$1.lambda$newThread$0(Engine.java:312)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 
+agent-1  | Sep 30, 2026 10:07:32 PM hudson.remoting.ProxyOutputStream$CleanupState cleanup
+agent-1  | WARNING: Failed to unexport ProxyOutputStream
+agent-1  | hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Channel.send(Channel.java:830)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupState.cleanup(ProxyOutputStream.java:486)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupChecker.run(ProxyOutputStream.java:505)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl$PhantomCleanableRef.performCleanup(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.PhantomCleanable.clean(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl.run(Unknown Source)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.misc.InnocuousThread.run(Unknown Source)
+agent-1  | Caused by: hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Engine$1AgentEndpoint.lambda$onClose$1(Engine.java:727)
+agent-1  | 	at hudson.remoting.InterceptingExecutorService.lambda$wrap$0(InterceptingExecutorService.java:81)
+agent-1  | 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+agent-1  | 	at hudson.remoting.Engine$1.lambda$newThread$0(Engine.java:312)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 
+agent-1  | Sep 30, 2026 10:07:32 PM hudson.remoting.ProxyOutputStream$CleanupState cleanup
+agent-1  | WARNING: Failed to unexport ProxyOutputStream
+agent-1  | hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Channel.send(Channel.java:830)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupState.cleanup(ProxyOutputStream.java:486)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupChecker.run(ProxyOutputStream.java:505)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl$PhantomCleanableRef.performCleanup(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.PhantomCleanable.clean(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl.run(Unknown Source)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.misc.InnocuousThread.run(Unknown Source)
+agent-1  | Caused by: hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Engine$1AgentEndpoint.lambda$onClose$1(Engine.java:727)
+agent-1  | 	at hudson.remoting.InterceptingExecutorService.lambda$wrap$0(InterceptingExecutorService.java:81)
+agent-1  | 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+agent-1  | 	at hudson.remoting.Engine$1.lambda$newThread$0(Engine.java:312)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 
+agent-1  | Sep 30, 2026 10:07:32 PM hudson.remoting.ProxyOutputStream$CleanupState cleanup
+agent-1  | WARNING: Failed to unexport ProxyOutputStream
+agent-1  | hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Channel.send(Channel.java:830)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupState.cleanup(ProxyOutputStream.java:486)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupChecker.run(ProxyOutputStream.java:505)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl$PhantomCleanableRef.performCleanup(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.PhantomCleanable.clean(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl.run(Unknown Source)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.misc.InnocuousThread.run(Unknown Source)
+agent-1  | Caused by: hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Engine$1AgentEndpoint.lambda$onClose$1(Engine.java:727)
+agent-1  | 	at hudson.remoting.InterceptingExecutorService.lambda$wrap$0(InterceptingExecutorService.java:81)
+agent-1  | 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+agent-1  | 	at hudson.remoting.Engine$1.lambda$newThread$0(Engine.java:312)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 
+agent-1  | Sep 30, 2026 10:07:32 PM hudson.remoting.ProxyOutputStream$CleanupState cleanup
+agent-1  | WARNING: Failed to unexport ProxyOutputStream
+agent-1  | hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Channel.send(Channel.java:830)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupState.cleanup(ProxyOutputStream.java:486)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupChecker.run(ProxyOutputStream.java:505)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl$PhantomCleanableRef.performCleanup(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.PhantomCleanable.clean(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl.run(Unknown Source)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.misc.InnocuousThread.run(Unknown Source)
+agent-1  | Caused by: hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Engine$1AgentEndpoint.lambda$onClose$1(Engine.java:727)
+agent-1  | 	at hudson.remoting.InterceptingExecutorService.lambda$wrap$0(InterceptingExecutorService.java:81)
+agent-1  | 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+agent-1  | 	at hudson.remoting.Engine$1.lambda$newThread$0(Engine.java:312)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 
+agent-1  | Sep 30, 2026 10:07:32 PM hudson.remoting.ProxyOutputStream$CleanupState cleanup
+agent-1  | WARNING: Failed to unexport ProxyOutputStream
+agent-1  | hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Channel.send(Channel.java:830)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupState.cleanup(ProxyOutputStream.java:486)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupChecker.run(ProxyOutputStream.java:505)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl$PhantomCleanableRef.performCleanup(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.PhantomCleanable.clean(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl.run(Unknown Source)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.misc.InnocuousThread.run(Unknown Source)
+agent-1  | Caused by: hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Engine$1AgentEndpoint.lambda$onClose$1(Engine.java:727)
+agent-1  | 	at hudson.remoting.InterceptingExecutorService.lambda$wrap$0(InterceptingExecutorService.java:81)
+agent-1  | 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+agent-1  | 	at hudson.remoting.Engine$1.lambda$newThread$0(Engine.java:312)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 
+agent-1  | Sep 30, 2026 10:07:32 PM hudson.remoting.ProxyOutputStream$CleanupState cleanup
+agent-1  | WARNING: Failed to unexport ProxyOutputStream
+agent-1  | hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Channel.send(Channel.java:830)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupState.cleanup(ProxyOutputStream.java:486)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupChecker.run(ProxyOutputStream.java:505)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl$PhantomCleanableRef.performCleanup(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.PhantomCleanable.clean(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl.run(Unknown Source)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.misc.InnocuousThread.run(Unknown Source)
+agent-1  | Caused by: hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Engine$1AgentEndpoint.lambda$onClose$1(Engine.java:727)
+agent-1  | 	at hudson.remoting.InterceptingExecutorService.lambda$wrap$0(InterceptingExecutorService.java:81)
+agent-1  | 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+agent-1  | 	at hudson.remoting.Engine$1.lambda$newThread$0(Engine.java:312)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 
+agent-1  | Sep 30, 2026 10:07:32 PM hudson.remoting.ProxyOutputStream$CleanupState cleanup
+agent-1  | WARNING: Failed to unexport ProxyOutputStream
+agent-1  | hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Channel.send(Channel.java:830)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupState.cleanup(ProxyOutputStream.java:486)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupChecker.run(ProxyOutputStream.java:505)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl$PhantomCleanableRef.performCleanup(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.PhantomCleanable.clean(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl.run(Unknown Source)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.misc.InnocuousThread.run(Unknown Source)
+agent-1  | Caused by: hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Engine$1AgentEndpoint.lambda$onClose$1(Engine.java:727)
+agent-1  | 	at hudson.remoting.InterceptingExecutorService.lambda$wrap$0(InterceptingExecutorService.java:81)
+agent-1  | 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+agent-1  | 	at hudson.remoting.Engine$1.lambda$newThread$0(Engine.java:312)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 
+agent-1  | Sep 30, 2026 10:07:32 PM hudson.remoting.ProxyOutputStream$CleanupState cleanup
+agent-1  | WARNING: Failed to unexport ProxyOutputStream
+agent-1  | hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Channel.send(Channel.java:830)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupState.cleanup(ProxyOutputStream.java:486)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupChecker.run(ProxyOutputStream.java:505)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl$PhantomCleanableRef.performCleanup(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.PhantomCleanable.clean(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl.run(Unknown Source)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.misc.InnocuousThread.run(Unknown Source)
+agent-1  | Caused by: hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Engine$1AgentEndpoint.lambda$onClose$1(Engine.java:727)
+agent-1  | 	at hudson.remoting.InterceptingExecutorService.lambda$wrap$0(InterceptingExecutorService.java:81)
+agent-1  | 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+agent-1  | 	at hudson.remoting.Engine$1.lambda$newThread$0(Engine.java:312)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 
+agent-1  | Sep 30, 2026 10:07:32 PM hudson.remoting.ProxyOutputStream$CleanupState cleanup
+agent-1  | WARNING: Failed to unexport ProxyOutputStream
+agent-1  | hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Channel.send(Channel.java:830)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupState.cleanup(ProxyOutputStream.java:486)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupChecker.run(ProxyOutputStream.java:505)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl$PhantomCleanableRef.performCleanup(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.PhantomCleanable.clean(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl.run(Unknown Source)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.misc.InnocuousThread.run(Unknown Source)
+agent-1  | Caused by: hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Engine$1AgentEndpoint.lambda$onClose$1(Engine.java:727)
+agent-1  | 	at hudson.remoting.InterceptingExecutorService.lambda$wrap$0(InterceptingExecutorService.java:81)
+agent-1  | 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+agent-1  | 	at hudson.remoting.Engine$1.lambda$newThread$0(Engine.java:312)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 
+agent-1  | Sep 30, 2026 10:07:32 PM hudson.remoting.ProxyOutputStream$CleanupState cleanup
+agent-1  | WARNING: Failed to unexport ProxyOutputStream
+agent-1  | hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Channel.send(Channel.java:830)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupState.cleanup(ProxyOutputStream.java:486)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupChecker.run(ProxyOutputStream.java:505)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl$PhantomCleanableRef.performCleanup(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.PhantomCleanable.clean(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl.run(Unknown Source)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.misc.InnocuousThread.run(Unknown Source)
+agent-1  | Caused by: hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Engine$1AgentEndpoint.lambda$onClose$1(Engine.java:727)
+agent-1  | 	at hudson.remoting.InterceptingExecutorService.lambda$wrap$0(InterceptingExecutorService.java:81)
+agent-1  | 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+agent-1  | 	at hudson.remoting.Engine$1.lambda$newThread$0(Engine.java:312)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 
+agent-1  | Sep 30, 2026 10:07:33 PM hudson.remoting.ProxyOutputStream$CleanupState cleanup
+agent-1  | WARNING: Failed to unexport ProxyOutputStream
+agent-1  | hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Channel.send(Channel.java:830)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupState.cleanup(ProxyOutputStream.java:486)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupChecker.run(ProxyOutputStream.java:505)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl$PhantomCleanableRef.performCleanup(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.PhantomCleanable.clean(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl.run(Unknown Source)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.misc.InnocuousThread.run(Unknown Source)
+agent-1  | Caused by: hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Engine$1AgentEndpoint.lambda$onClose$1(Engine.java:727)
+agent-1  | 	at hudson.remoting.InterceptingExecutorService.lambda$wrap$0(InterceptingExecutorService.java:81)
+agent-1  | 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+agent-1  | 	at hudson.remoting.Engine$1.lambda$newThread$0(Engine.java:312)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 
+agent-1  | Sep 30, 2026 10:07:33 PM hudson.remoting.ProxyOutputStream$CleanupState cleanup
+agent-1  | WARNING: Failed to unexport ProxyOutputStream
+agent-1  | hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Channel.send(Channel.java:830)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupState.cleanup(ProxyOutputStream.java:486)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupChecker.run(ProxyOutputStream.java:505)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl$PhantomCleanableRef.performCleanup(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.PhantomCleanable.clean(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl.run(Unknown Source)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.misc.InnocuousThread.run(Unknown Source)
+agent-1  | Caused by: hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Engine$1AgentEndpoint.lambda$onClose$1(Engine.java:727)
+agent-1  | 	at hudson.remoting.InterceptingExecutorService.lambda$wrap$0(InterceptingExecutorService.java:81)
+agent-1  | 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+agent-1  | 	at hudson.remoting.Engine$1.lambda$newThread$0(Engine.java:312)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 
+agent-1  | Sep 30, 2026 10:07:33 PM hudson.remoting.ProxyOutputStream$CleanupState cleanup
+agent-1  | WARNING: Failed to unexport ProxyOutputStream
+agent-1  | hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Channel.send(Channel.java:830)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupState.cleanup(ProxyOutputStream.java:486)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupChecker.run(ProxyOutputStream.java:505)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl$PhantomCleanableRef.performCleanup(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.PhantomCleanable.clean(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl.run(Unknown Source)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.misc.InnocuousThread.run(Unknown Source)
+agent-1  | Caused by: hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Engine$1AgentEndpoint.lambda$onClose$1(Engine.java:727)
+agent-1  | 	at hudson.remoting.InterceptingExecutorService.lambda$wrap$0(InterceptingExecutorService.java:81)
+agent-1  | 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+agent-1  | 	at hudson.remoting.Engine$1.lambda$newThread$0(Engine.java:312)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 
+agent-1  | Sep 30, 2026 10:07:33 PM hudson.remoting.ProxyOutputStream$CleanupState cleanup
+agent-1  | WARNING: Failed to unexport ProxyOutputStream
+agent-1  | hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Channel.send(Channel.java:830)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupState.cleanup(ProxyOutputStream.java:486)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupChecker.run(ProxyOutputStream.java:505)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl$PhantomCleanableRef.performCleanup(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.PhantomCleanable.clean(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl.run(Unknown Source)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.misc.InnocuousThread.run(Unknown Source)
+agent-1  | Caused by: hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Engine$1AgentEndpoint.lambda$onClose$1(Engine.java:727)
+agent-1  | 	at hudson.remoting.InterceptingExecutorService.lambda$wrap$0(InterceptingExecutorService.java:81)
+agent-1  | 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+agent-1  | 	at hudson.remoting.Engine$1.lambda$newThread$0(Engine.java:312)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 
+agent-1  | Sep 30, 2026 10:07:33 PM hudson.remoting.ProxyOutputStream$CleanupState cleanup
+agent-1  | WARNING: Failed to unexport ProxyOutputStream
+agent-1  | hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Channel.send(Channel.java:830)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupState.cleanup(ProxyOutputStream.java:486)
+agent-1  | 	at hudson.remoting.ProxyOutputStream$CleanupChecker.run(ProxyOutputStream.java:505)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl$PhantomCleanableRef.performCleanup(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.PhantomCleanable.clean(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.ref.CleanerImpl.run(Unknown Source)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 	at java.base/jdk.internal.misc.InnocuousThread.run(Unknown Source)
+agent-1  | Caused by: hudson.remoting.ChannelClosedException: Channel "hudson.remoting.Channel@40086f41:linux-docker": channel is already closed
+agent-1  | 	at hudson.remoting.Engine$1AgentEndpoint.lambda$onClose$1(Engine.java:727)
+agent-1  | 	at hudson.remoting.InterceptingExecutorService.lambda$wrap$0(InterceptingExecutorService.java:81)
+agent-1  | 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+agent-1  | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+agent-1  | 	at hudson.remoting.Engine$1.lambda$newThread$0(Engine.java:312)
+agent-1  | 	at java.base/java.lang.Thread.run(Unknown Source)
+agent-1  | 
+agent-1  | Sep 30, 2026 10:07:33 PM hudson.remoting.Launcher createEngine
+agent-1  | INFO: Setting up agent: linux-docker
+agent-1  | Sep 30, 2026 10:07:33 PM hudson.remoting.Engine startEngine
+agent-1  | INFO: Using Remoting version: 3391.va_37fa_a_305d6d
+agent-1  | Sep 30, 2026 10:07:33 PM hudson.remoting.Engine startEngine
+agent-1  | WARNING: No Working Directory. Using the legacy JAR Cache location: /home/jenkins/.jenkins/cache/jars
+agent-1  | Sep 30, 2026 10:07:34 PM hudson.remoting.Launcher$CuiListener status
+agent-1  | INFO: http://jenkins:8080/login is not ready
+agent-1  | java.net.ConnectException: Connection refused
+agent-1  | 	at java.base/sun.nio.ch.Net.connect0(Native Method)
+agent-1  | 	at java.base/sun.nio.ch.Net.connect(Unknown Source)
+agent-1  | 	at java.base/sun.nio.ch.Net.connect(Unknown Source)
+agent-1  | 	at java.base/sun.nio.ch.NioSocketImpl.connect(Unknown Source)
+agent-1  | 	at java.base/java.net.Socket.connect(Unknown Source)
+agent-1  | 	at java.base/java.net.Socket.connect(Unknown Source)
+agent-1  | 	at java.base/sun.net.NetworkClient.doConnect(Unknown Source)
+agent-1  | 	at java.base/sun.net.www.http.HttpClient.openServer(Unknown Source)
+agent-1  | 	at java.base/sun.net.www.http.HttpClient.openServer(Unknown Source)
+agent-1  | 	at java.base/sun.net.www.http.HttpClient.<init>(Unknown Source)
+agent-1  | 	at java.base/sun.net.www.http.HttpClient.New(Unknown Source)
+agent-1  | 	at java.base/sun.net.www.http.HttpClient.New(Unknown Source)
+agent-1  | 	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(Unknown Source)
+agent-1  | 	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(Unknown Source)
+agent-1  | 	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(Unknown Source)
+agent-1  | 	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(Unknown Source)
+agent-1  | 	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source)
+agent-1  | 	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+agent-1  | 	at java.base/java.net.HttpURLConnection.getResponseCode(Unknown Source)
+agent-1  | 	at hudson.remoting.Engine.pingSuccessful(Engine.java:891)
+agent-1  | 	at hudson.remoting.Engine.lambda$runWebSocket$2(Engine.java:821)
+agent-1  | 	at hudson.remoting.Engine.succeedsWithRetries(Engine.java:868)
+agent-1  | 	at hudson.remoting.Engine.runWebSocket(Engine.java:821)
+agent-1  | 	at hudson.remoting.Engine.run(Engine.java:560)
+agent-1  | 
+agent-1  | Sep 30, 2026 10:07:34 PM hudson.remoting.Launcher$CuiListener status
+agent-1  | INFO: Waiting 1 second before retry
+agent-1  | Sep 30, 2026 10:07:35 PM hudson.remoting.Launcher$CuiListener status
+agent-1  | INFO: http://jenkins:8080/login is not ready: 503
+agent-1  | Sep 30, 2026 10:07:35 PM hudson.remoting.Launcher$CuiListener status
+agent-1  | INFO: Waiting 3 seconds before retry
+agent-1  | Sep 30, 2026 10:07:39 PM hudson.remoting.Launcher$CuiListener status
+agent-1  | INFO: WebSocket connection open
+agent-1  | Sep 30, 2026 10:07:39 PM hudson.remoting.Launcher$CuiListener status
+agent-1  | INFO: Connected

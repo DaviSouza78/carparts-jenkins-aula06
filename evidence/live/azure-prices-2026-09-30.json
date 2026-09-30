@@ -1,0 +1,197 @@
+{
+  "retrieved_at_utc": "2026-09-30T22:04:47.191098+00:00",
+  "source": "https://prices.azure.com/api/retail/prices",
+  "region": "brazilsouth",
+  "services": {
+    "Azure Container Apps": [
+      {
+        "meterName": "Environment Management Hour",
+        "skuName": "Environment",
+        "unitPrice": 0.2,
+        "unitOfMeasure": "1 Hour"
+      },
+      {
+        "meterName": "Dedicated vCPU Usage",
+        "skuName": "Dedicated",
+        "unitPrice": 0.057077,
+        "unitOfMeasure": "1 Hour"
+      },
+      {
+        "meterName": "Dedicated Memory Usage",
+        "skuName": "Dedicated",
+        "unitPrice": 0.004978,
+        "unitOfMeasure": "1 Hour"
+      },
+      {
+        "meterName": "Standard Requests",
+        "skuName": "Standard",
+        "unitPrice": 0.4,
+        "unitOfMeasure": "1M"
+      },
+      {
+        "meterName": "Environment Private Endpoint",
+        "skuName": "Environment",
+        "unitPrice": 0.2,
+        "unitOfMeasure": "1 Hour"
+      },
+      {
+        "meterName": "Standard Memory Idle Usage",
+        "skuName": "Standard",
+        "unitPrice": 3e-06,
+        "unitOfMeasure": "1 GiB Second"
+      },
+      {
+        "meterName": "Standard vCPU Active Usage",
+        "skuName": "Standard",
+        "unitPrice": 2.4e-05,
+        "unitOfMeasure": "1 Second"
+      },
+      {
+        "meterName": "Standard Memory Active Usage",
+        "skuName": "Standard",
+        "unitPrice": 3e-06,
+        "unitOfMeasure": "1 GiB Second"
+      },
+      {
+        "meterName": "Dynamic Sessions",
+        "skuName": "Dynamic Sessions",
+        "unitPrice": 0.03,
+        "unitOfMeasure": "1 Hour"
+      },
+      {
+        "meterName": "Standard vCPU Idle Usage",
+        "skuName": "Standard",
+        "unitPrice": 3e-06,
+        "unitOfMeasure": "1 Second"
+      },
+      {
+        "meterName": "Standard NC A100 v4 GPU Usage",
+        "skuName": "Standard",
+        "unitPrice": 0.001058,
+        "unitOfMeasure": "1 Second"
+      },
+      {
+        "meterName": "Hybrid vCPU Usage",
+        "skuName": "Hybrid",
+        "unitPrice": 0.36,
+        "unitOfMeasure": "1 Hour"
+      },
+      {
+        "meterName": "Dedicated Plan Management",
+        "skuName": "Dedicated",
+        "unitPrice": 0.1,
+        "unitOfMeasure": "1 Hour"
+      },
+      {
+        "meterName": "Standard NC T4 v3 GPU Usage",
+        "skuName": "Standard",
+        "unitPrice": 0.000146,
+        "unitOfMeasure": "1 Second"
+      },
+      {
+        "meterName": "Dedicated GPU Usage",
+        "skuName": "Dedicated",
+        "unitPrice": 8.8152,
+        "unitOfMeasure": "1 Hour"
+      },
+      {
+        "meterName": "Environment Planned Maintenance Hour",
+        "skuName": "Environment",
+        "unitPrice": 0.2,
+        "unitOfMeasure": "1 Hour"
+      }
+    ],
+    "Container Registry": [
+      {
+        "meterName": "Task vCPU Duration",
+        "skuName": "Standard",
+        "unitPrice": 0.0,
+        "unitOfMeasure": "1 Second"
+      },
+      {
+        "meterName": "Task vCPU Duration",
+        "skuName": "Standard",
+        "unitPrice": 0.0001,
+        "unitOfMeasure": "1 Second"
+      },
+      {
+        "meterName": "Standard Registry Unit",
+        "skuName": "Standard",
+        "unitPrice": 0.6666,
+        "unitOfMeasure": "1/Day"
+      },
+      {
+        "meterName": "Task vCPU Duration",
+        "skuName": "Basic",
+        "unitPrice": 0.0,
+        "unitOfMeasure": "1 Second"
+      },
+      {
+        "meterName": "Task vCPU Duration",
+        "skuName": "Basic",
+        "unitPrice": 0.0001,
+        "unitOfMeasure": "1 Second"
+      },
+      {
+        "meterName": "Basic Registry Unit",
+        "skuName": "Basic",
+        "unitPrice": 0.1666,
+        "unitOfMeasure": "1/Day"
+      },
+      {
+        "meterName": "Task vCPU Duration",
+        "skuName": "Premium",
+        "unitPrice": 0.0,
+        "unitOfMeasure": "1 Second"
+      },
+      {
+        "meterName": "Task vCPU Duration",
+        "skuName": "Premium",
+        "unitPrice": 0.0001,
+        "unitOfMeasure": "1 Second"
+      },
+      {
+        "meterName": "Premium GB Registry Replication Data Stored",
+        "skuName": "Premium",
+        "unitPrice": 0.1,
+        "unitOfMeasure": "1 GB/Month"
+      },
+      {
+        "meterName": "Premium Registry Unit",
+        "skuName": "Premium",
+        "unitPrice": 1.6666,
+        "unitOfMeasure": "1/Day"
+      },
+      {
+        "meterName": "Data Stored",
+        "skuName": "Standard",
+        "unitPrice": 0.1,
+        "unitOfMeasure": "1 GB/Month"
+      },
+      {
+        "meterName": "Premium Connected registry",
+        "skuName": "Premium",
+        "unitPrice": 0.33333,
+        "unitOfMeasure": "1/Day"
+      },
+      {
+        "meterName": "Data Stored",
+        "skuName": "Basic",
+        "unitPrice": 0.1,
+        "unitOfMeasure": "1 GB/Month"
+      },
+      {
+        "meterName": "Premium Registry Replication Unit",
+        "skuName": "Premium",
+        "unitPrice": 1.6666,
+        "unitOfMeasure": "1/Day"
+      },
+      {
+        "meterName": "Data Stored",
+        "skuName": "Premium",
+        "unitPrice": 0.1,
+        "unitOfMeasure": "1 GB/Month"
+      }
+    ]
+  }
+}

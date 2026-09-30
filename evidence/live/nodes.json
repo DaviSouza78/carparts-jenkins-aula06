@@ -1,0 +1,33 @@
+{
+  "_class": "hudson.model.ComputerSet",
+  "computer": [
+    {
+      "_class": "hudson.model.Hudson$MasterComputer",
+      "assignedLabels": [
+        {
+          "name": "built-in"
+        }
+      ],
+      "displayName": "Built-In Node",
+      "numExecutors": 0,
+      "offline": false
+    },
+    {
+      "_class": "hudson.slaves.SlaveComputer",
+      "assignedLabels": [
+        {
+          "name": "linux-docker"
+        },
+        {
+          "name": "linux"
+        },
+        {
+          "name": "docker"
+        }
+      ],
+      "displayName": "linux-docker",
+      "numExecutors": 2,
+      "offline": false
+    }
+  ]
+}
