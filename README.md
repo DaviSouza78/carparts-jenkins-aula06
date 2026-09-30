@@ -8,12 +8,12 @@ Projeto demonstrativo produzido para a atividade SAP1-DEVOPS, com API Node.js e 
 |---|---|---|
 | E1 Arquitetura | `docs/E1-arquitetura.md`, `compose.yaml` | Controller local e agent Linux online; `evidence/live/nodes.json` mostra 0/2 executores |
 | E2 Controller | `jenkins/controller/Dockerfile`, `plugins.txt`, `casc.yaml` | Subida real em `evidence/live/controller-startup.log`; plugins diretos fixados por versão; sem acesso anônimo; nó interno com 0 executores |
-| E3 Pipeline | `Jenkinsfile`, `Dockerfile`, `src/`, `test/` | Dez builds locais consecutivos bem-sucedidos (#2–#11), quatro testes publicados no build #11, logs e artefato em `evidence/live/` |
+| E3 Pipeline | `Jenkinsfile`, `Dockerfile`, `src/`, `test/` | Onze builds locais consecutivos bem-sucedidos (#2–#12), quatro testes publicados no build #12, logs e artefato em `evidence/live/` |
 | E4 Azure | `azure/provision.sh`, `docs/E4-azure.md`, stages Azure no Jenkinsfile | Configuração e comandos prontos; **deploy remoto ainda não executado** |
-| E5 Multibranch | `docs/E5-github.md`, `infra/nginx-webhook.conf` | Configuração documentada; **webhook, PR e proteção remotos ainda não executados** |
-| E6 Métricas | `scripts/metrics.py`, `docs/E6-metricas.md` | Primeira amostra de 11 builds locais: 10 sucessos, mediana 5,1 s; **métricas de produção pendentes** |
+| E5 Multibranch | `docs/E5-github.md`, `infra/nginx-webhook.conf` | [Repositório privado criado](https://github.com/DaviSouza78/carparts-jenkins-aula06); **webhook e check Jenkins remotos ainda não executados** |
+| E6 Métricas | `scripts/metrics.py`, `docs/E6-metricas.md` | Amostra atual de 12 builds locais: 11 sucessos, mediana 5,1 s; **métricas de produção pendentes** |
 
-A primeira execução falhou porque a opção `timestamps()` exigia um plugin não instalado. A opção foi removida, e as dez execuções seguintes passaram. Isso está preservado nos dados e logs; nenhuma implantação Azure ou revisão de PR foi simulada como execução real.
+A primeira execução falhou porque a opção `timestamps()` exigia um plugin não instalado. A opção foi removida, e as onze execuções seguintes passaram. Isso está preservado nos dados e logs; nenhuma implantação Azure foi simulada como execução real.
 
 ## Rodar localmente
 
@@ -41,12 +41,12 @@ docker run --rm -p 127.0.0.1:3000:3000 carparts-b2b-demo:local
 
 Leia `docs/E4-azure.md` e `docs/E5-github.md`. Antes de provisionar, confirme uma assinatura Azure autorizada, orçamento e a oferta de preços. `azure/provision.sh` cria recursos que podem gerar cobrança; revise nomes e permissões antes da execução. Importe o segredo do service principal para o cofre Jenkins e remova o arquivo local; nunca inclua credenciais em commits, parâmetros de build ou logs. A publicação no Jenkinsfile só roda na branch `main` com `ENABLE_AZURE_DEPLOY=true`. O gate de produção exige aprovação identificada e promove o mesmo digest validado em homologação.
 
-O Multibranch e o webhook dependem de um repositório GitHub da equipe e de um domínio HTTPS controlado. `infra/nginx-webhook.conf` é um modelo que expõe somente o endpoint de webhook, não a interface Jenkins. Configure o segredo HMAC no GitHub/Jenkins e a proteção de `main` antes de ativar deploy.
+O código está no [GitHub](https://github.com/DaviSouza78/carparts-jenkins-aula06). O Multibranch e o webhook dependem de um domínio HTTPS controlado e de credenciais de acesso ao repositório privado. `infra/nginx-webhook.conf` é um modelo que expõe somente o endpoint de webhook, não a interface Jenkins. Configure o segredo HMAC no GitHub/Jenkins e a proteção de `main` antes de ativar deploy.
 
 ## Evidências e limites
 
 - `evidence/live/builds.json`: histórico da API Jenkins; `console-N.txt`: saída de cada build de laboratório.
-- `evidence/live/nodes.json`: executores do controller e agent; `test-report-11.json`: quatro testes, zero falhas; `build-artifact-11.json`: commit e imagem.
+- `evidence/live/nodes.json`: executores do controller e agent; `test-report-12.json`: quatro testes, zero falhas; `build-artifact-12.json`: commit e imagem.
 - `evidence/live/app-smoke.json`: API iniciada em contêiner e endpoints verificados localmente.
 - `evidence/live/azure-prices-2026-09-30.json`: leitura da API oficial de preços em Brasil Sul. É referência de planejamento, não fatura.
 
