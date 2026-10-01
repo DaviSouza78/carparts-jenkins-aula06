@@ -1,0 +1,10 @@
+{
+  "checkedAtUtc": "2026-10-01T01:53:05.526705+00:00",
+  "resourceGroup": "rg-carparts-aula06-26180842",
+  "resourceGroupExists": false,
+  "temporaryServicePrincipalCount": null,
+  "temporaryServicePrincipalDeletion": "Graph readback requires interactive reauthentication; az ad sp delete previously exited 0",
+  "temporaryJenkinsCredentialIdsRemaining": [],
+  "localServicePrincipalSecretFileExists": false,
+  "dockerAcrLoginRemoved": true
+}

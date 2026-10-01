@@ -1,0 +1,29 @@
+Started
+[Thu Oct 01 01:47:05 UTC 2026] Starting branch indexing...
+ > git --version # timeout=10
+ > git --version # 'git version 2.47.3'
+ > git ls-remote --symref -- /project-git # timeout=10
+ > git rev-parse --resolve-git-dir /var/jenkins_home/caches/git-6fcbd591ff4c4d23d4e7849bbbf906bb/.git # timeout=10
+Setting origin to /project-git
+ > git config remote.origin.url /project-git # timeout=10
+Fetching & pruning origin...
+Listing remote references...
+ > git config --get remote.origin.url # timeout=10
+ > git --version # timeout=10
+ > git --version # 'git version 2.47.3'
+ > git ls-remote -h -- /project-git # timeout=10
+Fetching upstream changes from origin
+ > git config --get remote.origin.url # timeout=10
+ > git fetch --no-tags --force --progress --prune -- origin +refs/heads/*:refs/remotes/origin/* # timeout=10
+Checking branches...
+  Checking branch main
+      ‘Jenkinsfile’ found
+    Met criteria
+No changes detected: main (still at ea67aa45aca65fc25bd7e651049b98852c36c1c4)
+  Checking branch lab-branch-demo
+      ‘Jenkinsfile’ found
+    Met criteria
+Scheduled build for branch: lab-branch-demo
+Processed 2 branches
+[Thu Oct 01 01:47:05 UTC 2026] Finished branch indexing. Indexing took 0.37 sec
+Finished: SUCCESS

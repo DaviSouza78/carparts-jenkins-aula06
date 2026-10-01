@@ -12,7 +12,8 @@ set -euo pipefail
 az account set --subscription "$AZURE_SUBSCRIPTION_ID"
 az group create -n "$AZURE_RESOURCE_GROUP" -l "$AZURE_LOCATION" --output none
 az acr create -n "$AZURE_ACR_NAME" -g "$AZURE_RESOURCE_GROUP" --sku Basic --admin-enabled false --output none
-az containerapp env create -n "$AZURE_ENVIRONMENT" -g "$AZURE_RESOURCE_GROUP" -l "$AZURE_LOCATION" --output none
+az containerapp env create -n "$AZURE_ENVIRONMENT" -g "$AZURE_RESOURCE_GROUP" -l "$AZURE_LOCATION" \
+  --environment-mode ConsumptionOnly --logs-destination none --output none
 
 # Bootstrap com imagem pública; substitua pela imagem Carparts após o primeiro push.
 for app in "$AZURE_STAGING_APP" "$AZURE_PRODUCTION_APP"; do
@@ -27,6 +28,8 @@ for app in "$AZURE_STAGING_APP" "$AZURE_PRODUCTION_APP"; do
   principal_id=$(az containerapp identity show -n "$app" -g "$AZURE_RESOURCE_GROUP" --query principalId -o tsv)
   az role assignment create --assignee-object-id "$principal_id" --assignee-principal-type ServicePrincipal --role AcrPull --scope "$acr_id" --output none
   az containerapp registry set -n "$app" -g "$AZURE_RESOURCE_GROUP" --server "$AZURE_ACR_NAME.azurecr.io" --identity system --output none
+  # A API Node.js da Carparts escuta na porta 3000; o bootstrap público usa 80.
+  az containerapp ingress update -n "$app" -g "$AZURE_RESOURCE_GROUP" --target-port 3000 --output none
 done
 
 # Crie o service principal sem exibir o segredo; importe-o no Jenkins e remova o arquivo local.
