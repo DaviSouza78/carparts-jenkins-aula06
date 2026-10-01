@@ -8,12 +8,18 @@
     "requiresPullRequest": true,
     "requiresApproval": false,
     "requiresStatusCheck": false,
+    "requiredCheckTestedThenDisabled": "continuous-integration/jenkins/pr-merge",
+    "requiredCheckDuringTest": true,
     "allowsForcePushes": false,
     "allowsDeletions": false
   },
   "evidence": "GitHub settings/branches displayed 'Branch protection rule created.' and listed main.",
-  "remoteWebhookTest": "not run; local Docker Desktop backend failed to start",
-  "remoteJenkinsCheck": "not run",
-  "githubTokenCreated": false,
-  "webhookCreated": false
+  "remoteWebhookTest": "ping, push and pull_request HMAC-valid with HTTP 200",
+  "remoteJenkinsCheck": "passed on PR-1 builds 2, 3 and 4",
+  "githubTokenCreated": true,
+  "githubTokenExpiry": "2026-10-01",
+  "githubTokenDeletion": "user chose to let it expire; local Jenkins credential deleted",
+  "webhookCreated": true,
+  "webhookFinalState": "inactive",
+  "tunnelFinalState": "stopped and container removed"
 }

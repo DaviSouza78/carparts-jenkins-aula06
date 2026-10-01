@@ -1,0 +1,13 @@
+{
+  "repository": "DaviSouza78/carparts-jenkins-aula06",
+  "finalRepositoryVisibility": "public",
+  "finalMainProtection": "pull request required; status check requirement disabled after test",
+  "webhookId": 689989521,
+  "webhookFinalState": "inactive; historical delivery records retained in GitHub",
+  "cloudflareTunnelFinalState": "stopped; container removed",
+  "webhookProxyFinalState": "stopped; container and temporary image removed",
+  "localHmacSecretFilePresent": false,
+  "jenkinsCredentialGithubPatPresent": false,
+  "githubFineGrainedToken": "not revoked at user's request; expires 2026-10-01",
+  "azureResourceGroupFinalState": "deleted; see azure-cleanup.json"
+}
