@@ -1,0 +1,299 @@
+Pull request #1 updated
+Connecting to https://api.github.com using Temporario: GitHub Branch Source E5
+Obtained Jenkinsfile from 6c550402024b63b73f546346d540238413c5dc30+e633481f0aa89f3122dea1bc5f38ac18dee9c9cd (992c0223ac646819938e687648ad6e9530faf1b1)
+[Pipeline] Start of Pipeline
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] timeout
+Timeout set to expire in 10 min
+[Pipeline] {
+[Pipeline] node
+Running on linux-docker in /home/jenkins/agent/workspace/carparts-multibranch-github_PR-1
+[Pipeline] {
+[Pipeline] script
+[Pipeline] {
+[Pipeline] checkout
+The recommended git tool is: NONE
+using credential github-pat
+Fetching changes from the remote Git repository
+Fetching without tags
+Merging remotes/origin/main commit e633481f0aa89f3122dea1bc5f38ac18dee9c9cd into PR head commit 6c550402024b63b73f546346d540238413c5dc30
+Merge succeeded, producing 6c550402024b63b73f546346d540238413c5dc30
+Checking out Revision 6c550402024b63b73f546346d540238413c5dc30 (PR-1)
+Commit message: "Merge branch 'main' into e5-revisao-exemplo"
+ > git rev-parse --resolve-git-dir /home/jenkins/agent/workspace/carparts-multibranch-github_PR-1/.git # timeout=10
+ > git config remote.origin.url https://github.com/DaviSouza78/carparts-jenkins-aula06.git # timeout=10
+Fetching upstream changes from https://github.com/DaviSouza78/carparts-jenkins-aula06.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.47.3'
+using GIT_ASKPASS to set credentials Temporario: GitHub Branch Source E5
+ > git fetch --no-tags --force --progress -- https://github.com/DaviSouza78/carparts-jenkins-aula06.git +refs/pull/1/head:refs/remotes/origin/PR-1 +refs/heads/main:refs/remotes/origin/main # timeout=10
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 6c550402024b63b73f546346d540238413c5dc30 # timeout=10
+ > git remote # timeout=10
+ > git config --get remote.origin.url # timeout=10
+using GIT_ASKPASS to set credentials Temporario: GitHub Branch Source E5
+ > git merge e633481f0aa89f3122dea1bc5f38ac18dee9c9cd # timeout=10
+ > git rev-parse HEAD^{commit} # timeout=10
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 6c550402024b63b73f546346d540238413c5dc30 # timeout=10
+ > git rev-list --no-walk 249d624a95aa7a6f6feb7ccd2908d6cce32202f1 # timeout=10
+[Pipeline] sh
++ git rev-parse HEAD
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Qualidade)
+[Pipeline] timeout
+Timeout set to expire in 15 min
+[Pipeline] {
+[Pipeline] node
+Running on linux-docker in /home/jenkins/agent/workspace/carparts-multibranch-github_PR-1
+[Pipeline] {
+[Pipeline] sh
++ docker build --target lint -t carparts-lint:4 .
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  49.66kB
+Step 1/8 : FROM node:22-alpine AS base
+ ---> 7c3b093add7c
+Step 2/8 : WORKDIR /app
+ ---> Using cache
+ ---> 44b550491444
+Step 3/8 : COPY package.json ./
+ ---> Using cache
+ ---> 4cad7be7a525
+Step 4/8 : COPY src ./src
+ ---> Using cache
+ ---> 30a04256971c
+Step 5/8 : COPY test ./test
+ ---> Using cache
+ ---> 71fea5c6e385
+Step 6/8 : COPY scripts ./scripts
+ ---> Using cache
+ ---> cd407bdc163b
+Step 7/8 : FROM base AS lint
+ ---> cd407bdc163b
+Step 8/8 : RUN npm run lint
+ ---> Using cache
+ ---> c1eb5a6c93ef
+Successfully built c1eb5a6c93ef
+Successfully tagged carparts-lint:4
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Testes)
+[Pipeline] timeout
+Timeout set to expire in 15 min
+[Pipeline] {
+[Pipeline] node
+Running on linux-docker in /home/jenkins/agent/workspace/carparts-multibranch-github_PR-1
+[Pipeline] {
+[Pipeline] sh
++ set -eu
++ docker build --target test -t carparts-test:4 .
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  49.66kB
+Step 1/10 : FROM node:22-alpine AS base
+ ---> 7c3b093add7c
+Step 2/10 : WORKDIR /app
+ ---> Using cache
+ ---> 44b550491444
+Step 3/10 : COPY package.json ./
+ ---> Using cache
+ ---> 4cad7be7a525
+Step 4/10 : COPY src ./src
+ ---> Using cache
+ ---> 30a04256971c
+Step 5/10 : COPY test ./test
+ ---> Using cache
+ ---> 71fea5c6e385
+Step 6/10 : COPY scripts ./scripts
+ ---> Using cache
+ ---> cd407bdc163b
+Step 7/10 : FROM base AS lint
+ ---> cd407bdc163b
+Step 8/10 : RUN npm run lint
+ ---> Using cache
+ ---> c1eb5a6c93ef
+Step 9/10 : FROM base AS test
+ ---> cd407bdc163b
+Step 10/10 : RUN mkdir -p reports && npm test
+ ---> Using cache
+ ---> dc4e5dbbb9b6
+Successfully built dc4e5dbbb9b6
+Successfully tagged carparts-test:4
++ docker create carparts-test:4
++ cid=f8f15c490bfcd8ced040d8408d82c26b700f8046e38d75fc7464f0e59783e3c9
++ mkdir -p reports
++ docker cp f8f15c490bfcd8ced040d8408d82c26b700f8046e38d75fc7464f0e59783e3c9:/app/reports/. reports/
++ docker rm f8f15c490bfcd8ced040d8408d82c26b700f8046e38d75fc7464f0e59783e3c9
+f8f15c490bfcd8ced040d8408d82c26b700f8046e38d75fc7464f0e59783e3c9
+Post stage
+[Pipeline] junit
+Recording test results
+[Checks API] No suitable checks publisher found.
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Imagem imutável)
+[Pipeline] timeout
+Timeout set to expire in 15 min
+[Pipeline] {
+[Pipeline] node
+Running on linux-docker in /home/jenkins/agent/workspace/carparts-multibranch-github_PR-1
+[Pipeline] {
+[Pipeline] sh
++ docker build --target production -t carparts-b2b-demo:4 .
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  49.66kB
+Step 1/19 : FROM node:22-alpine AS base
+ ---> 7c3b093add7c
+Step 2/19 : WORKDIR /app
+ ---> Using cache
+ ---> 44b550491444
+Step 3/19 : COPY package.json ./
+ ---> Using cache
+ ---> 4cad7be7a525
+Step 4/19 : COPY src ./src
+ ---> Using cache
+ ---> 30a04256971c
+Step 5/19 : COPY test ./test
+ ---> Using cache
+ ---> 71fea5c6e385
+Step 6/19 : COPY scripts ./scripts
+ ---> Using cache
+ ---> cd407bdc163b
+Step 7/19 : FROM base AS lint
+ ---> cd407bdc163b
+Step 8/19 : RUN npm run lint
+ ---> Using cache
+ ---> c1eb5a6c93ef
+Step 9/19 : FROM base AS test
+ ---> cd407bdc163b
+Step 10/19 : RUN mkdir -p reports && npm test
+ ---> Using cache
+ ---> dc4e5dbbb9b6
+Step 11/19 : FROM node:22-alpine AS production
+ ---> 7c3b093add7c
+Step 12/19 : ENV NODE_ENV=production PORT=3000
+ ---> Using cache
+ ---> 13d9e3a3c52a
+Step 13/19 : WORKDIR /app
+ ---> Using cache
+ ---> 9d26171c11d5
+Step 14/19 : COPY --from=base /app/package.json ./
+ ---> Using cache
+ ---> c53d3a90aaec
+Step 15/19 : COPY --from=base /app/src ./src
+ ---> Using cache
+ ---> 9ec5aa0195b1
+Step 16/19 : USER node
+ ---> Using cache
+ ---> 348c3d387336
+Step 17/19 : EXPOSE 3000
+ ---> Using cache
+ ---> 78a42d8ae4f5
+Step 18/19 : HEALTHCHECK --interval=30s --timeout=3s CMD node -e "fetch('http://127.0.0.1:3000/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+ ---> Using cache
+ ---> 0890d80762af
+Step 19/19 : CMD ["node", "src/server.js"]
+ ---> Using cache
+ ---> a943e79c43c6
+Successfully built a943e79c43c6
+Successfully tagged carparts-b2b-demo:4
+[Pipeline] sh
++ mkdir -p evidence
++ date -u +%Y-%m-%dT%H:%M:%SZ
++ printf {"build":"%s","commit":"%s","image":"carparts-b2b-demo:%s","timestamp":"%s"}
+ 4 6c550402024b63b73f546346d540238413c5dc30 4 2026-10-01T02:26:30Z
+[Pipeline] archiveArtifacts
+Archiving artifacts
+Recording fingerprints
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Publicar no ACR)
+[Pipeline] timeout
+Timeout set to expire in 15 min
+[Pipeline] {
+[Pipeline] }
+[Pipeline] // timeout
+Stage "Publicar no ACR" skipped due to when conditional
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Homologação Azure)
+[Pipeline] timeout
+Timeout set to expire in 20 min
+[Pipeline] {
+[Pipeline] }
+[Pipeline] // timeout
+Stage "Homologação Azure" skipped due to when conditional
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Aprovação produção)
+[Pipeline] timeout
+Timeout set to expire in 2 days 0 hr
+[Pipeline] {
+[Pipeline] }
+[Pipeline] // timeout
+Stage "Aprovação produção" skipped due to when conditional
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Produção Azure)
+[Pipeline] timeout
+Timeout set to expire in 20 min
+[Pipeline] {
+[Pipeline] }
+[Pipeline] // timeout
+Stage "Produção Azure" skipped due to when conditional
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] echo
+Build 4 concluído para commit 6c550402024b63b73f546346d540238413c5dc30
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] End of Pipeline
+
+GitHub has been notified of this commit’s build result
+
+Finished: SUCCESS

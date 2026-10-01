@@ -1,0 +1,19 @@
+{
+  "observedAtLocal": "2026-09-30",
+  "repository": "DaviSouza78/carparts-jenkins-aula06",
+  "visibility": "public",
+  "branch": "main",
+  "classicBranchProtection": {
+    "created": true,
+    "requiresPullRequest": true,
+    "requiresApproval": false,
+    "requiresStatusCheck": false,
+    "allowsForcePushes": false,
+    "allowsDeletions": false
+  },
+  "evidence": "GitHub settings/branches displayed 'Branch protection rule created.' and listed main.",
+  "remoteWebhookTest": "not run; local Docker Desktop backend failed to start",
+  "remoteJenkinsCheck": "not run",
+  "githubTokenCreated": false,
+  "webhookCreated": false
+}
