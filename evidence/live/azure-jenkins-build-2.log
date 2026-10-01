@@ -1,0 +1,369 @@
+Started by user admin
+[Pipeline] Start of Pipeline
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] timeout
+Timeout set to expire in 10 min
+[Pipeline] {
+[Pipeline] node
+Running on linux-docker in /home/jenkins/agent/workspace/carparts-azure-demo
+[Pipeline] {
+[Pipeline] script
+[Pipeline] {
+[Pipeline] sh
++ cp -R /project/src /project/test /project/scripts /project/package.json /project/Dockerfile /project/.dockerignore ./
+[Pipeline] sh
++ cd /project
++ git -c safe.directory=/project rev-parse HEAD
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Qualidade)
+[Pipeline] timeout
+Timeout set to expire in 15 min
+[Pipeline] {
+[Pipeline] node
+Running on linux-docker in /home/jenkins/agent/workspace/carparts-azure-demo
+[Pipeline] {
+[Pipeline] sh
++ docker build --target lint -t carparts-lint:2 .
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  41.47kB
+
+
+Step 1/8 : FROM node:22-alpine AS base
+ ---> 7c3b093add7c
+Step 2/8 : WORKDIR /app
+ ---> Using cache
+ ---> 44b550491444
+Step 3/8 : COPY package.json ./
+ ---> Using cache
+ ---> 8f04c27bfa14
+Step 4/8 : COPY src ./src
+ ---> Using cache
+ ---> 3d5745a5d1ed
+Step 5/8 : COPY test ./test
+ ---> Using cache
+ ---> 77183d542d4d
+Step 6/8 : COPY scripts ./scripts
+ ---> Using cache
+ ---> 30ce9c863e21
+Step 7/8 : FROM base AS lint
+ ---> 30ce9c863e21
+Step 8/8 : RUN npm run lint
+ ---> Using cache
+ ---> fc714eec1c82
+Successfully built fc714eec1c82
+Successfully tagged carparts-lint:2
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Testes)
+[Pipeline] timeout
+Timeout set to expire in 15 min
+[Pipeline] {
+[Pipeline] node
+Running on linux-docker in /home/jenkins/agent/workspace/carparts-azure-demo
+[Pipeline] {
+[Pipeline] sh
++ set -eu
++ docker build --target test -t carparts-test:2 .
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  41.47kB
+
+
+Step 1/10 : FROM node:22-alpine AS base
+ ---> 7c3b093add7c
+Step 2/10 : WORKDIR /app
+ ---> Using cache
+ ---> 44b550491444
+Step 3/10 : COPY package.json ./
+ ---> Using cache
+ ---> 8f04c27bfa14
+Step 4/10 : COPY src ./src
+ ---> Using cache
+ ---> 3d5745a5d1ed
+Step 5/10 : COPY test ./test
+ ---> Using cache
+ ---> 77183d542d4d
+Step 6/10 : COPY scripts ./scripts
+ ---> Using cache
+ ---> 30ce9c863e21
+Step 7/10 : FROM base AS lint
+ ---> 30ce9c863e21
+Step 8/10 : RUN npm run lint
+ ---> Using cache
+ ---> fc714eec1c82
+Step 9/10 : FROM base AS test
+ ---> 30ce9c863e21
+Step 10/10 : RUN mkdir -p reports && npm test
+ ---> Using cache
+ ---> fab1c0548401
+Successfully built fab1c0548401
+Successfully tagged carparts-test:2
++ docker create carparts-test:2
++ cid=2c443168e09e4748b6a75268a7459d6e12a8a2cdbb9e780a6478bb2f2190e8b5
++ mkdir -p reports
++ docker cp 2c443168e09e4748b6a75268a7459d6e12a8a2cdbb9e780a6478bb2f2190e8b5:/app/reports/. reports/
++ docker rm 2c443168e09e4748b6a75268a7459d6e12a8a2cdbb9e780a6478bb2f2190e8b5
+2c443168e09e4748b6a75268a7459d6e12a8a2cdbb9e780a6478bb2f2190e8b5
+Post stage
+[Pipeline] junit
+Recording test results
+[Checks API] No suitable checks publisher found.
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Imagem imutÃ¡vel)
+[Pipeline] timeout
+Timeout set to expire in 15 min
+[Pipeline] {
+[Pipeline] node
+Running on linux-docker in /home/jenkins/agent/workspace/carparts-azure-demo
+[Pipeline] {
+[Pipeline] sh
++ docker build --target production -t carparts-b2b-demo:2 .
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  41.47kB
+
+
+Step 1/19 : FROM node:22-alpine AS base
+ ---> 7c3b093add7c
+Step 2/19 : WORKDIR /app
+ ---> Using cache
+ ---> 44b550491444
+Step 3/19 : COPY package.json ./
+ ---> Using cache
+ ---> 8f04c27bfa14
+Step 4/19 : COPY src ./src
+ ---> Using cache
+ ---> 3d5745a5d1ed
+Step 5/19 : COPY test ./test
+ ---> Using cache
+ ---> 77183d542d4d
+Step 6/19 : COPY scripts ./scripts
+ ---> Using cache
+ ---> 30ce9c863e21
+Step 7/19 : FROM base AS lint
+ ---> 30ce9c863e21
+Step 8/19 : RUN npm run lint
+ ---> Using cache
+ ---> fc714eec1c82
+Step 9/19 : FROM base AS test
+ ---> 30ce9c863e21
+Step 10/19 : RUN mkdir -p reports && npm test
+ ---> Using cache
+ ---> fab1c0548401
+Step 11/19 : FROM node:22-alpine AS production
+ ---> 7c3b093add7c
+Step 12/19 : ENV NODE_ENV=production PORT=3000
+ ---> Using cache
+ ---> 13d9e3a3c52a
+Step 13/19 : WORKDIR /app
+ ---> Using cache
+ ---> 9d26171c11d5
+Step 14/19 : COPY --from=base /app/package.json ./
+ ---> Using cache
+ ---> 180ba2e0ab34
+Step 15/19 : COPY --from=base /app/src ./src
+ ---> Using cache
+ ---> 235ef6c6885d
+Step 16/19 : USER node
+ ---> Using cache
+ ---> f12ac14562fb
+Step 17/19 : EXPOSE 3000
+ ---> Using cache
+ ---> 1ca93a68ad9e
+Step 18/19 : HEALTHCHECK --interval=30s --timeout=3s CMD node -e "fetch('http://127.0.0.1:3000/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+ ---> Using cache
+ ---> 1c0a11cd0c6b
+Step 19/19 : CMD ["node", "src/server.js"]
+ ---> Using cache
+ ---> c470d59fde3f
+Successfully built c470d59fde3f
+Successfully tagged carparts-b2b-demo:2
+[Pipeline] sh
++ mkdir -p evidence
++ date -u +%Y-%m-%dT%H:%M:%SZ
++ printf {"build":"%s","commit":"%s","image":"carparts-b2b-demo:%s","timestamp":"%s"}
+ 2 ea67aa45aca65fc25bd7e651049b98852c36c1c4 2 2026-10-01T01:26:09Z
+[Pipeline] archiveArtifacts
+Archiving artifacts
+Recording fingerprints
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Publicar no ACR)
+[Pipeline] timeout
+Timeout set to expire in 15 min
+[Pipeline] {
+[Pipeline] node
+Running on linux-docker in /home/jenkins/agent/workspace/carparts-azure-demo
+[Pipeline] {
+[Pipeline] withCredentials
+Masking supported pattern matches of $AZURE_CLIENT_ID or $AZURE_CLIENT_SECRET
+[Pipeline] {
+[Pipeline] sh
++ set +x
+WARNING! Your password will be stored unencrypted in /home/jenkins/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credential-stores
+
+Login Succeeded
+The push refers to repository [carparts26180842acr.azurecr.io/carparts-b2b-demo]
+75470ed99eb0: Preparing
+afe9d18875e4: Preparing
+6ff3533bf255: Preparing
+ff5db628aec4: Preparing
+50a35fcbb91b: Preparing
+ba3263475f99: Preparing
+74d97c428c51: Preparing
+ba3263475f99: Waiting
+74d97c428c51: Waiting
+50a35fcbb91b: Layer already exists
+ff5db628aec4: Layer already exists
+ba3263475f99: Layer already exists
+74d97c428c51: Layer already exists
+afe9d18875e4: Pushed
+6ff3533bf255: Pushed
+75470ed99eb0: Pushed
+2-ea67aa45aca65fc25bd7e651049b98852c36c1c4: digest: sha256:8992b0d4ac6ba423f94d4b2396bfa52c70ee1b417c1867b2649e98e33917f18d size: 1779
+[Pipeline] script
+[Pipeline] {
+[Pipeline] sh
++ docker image inspect --format {{index .RepoDigests 0}} carparts26180842acr.azurecr.io/carparts-b2b-demo:2-ea67aa45aca65fc25bd7e651049b98852c36c1c4
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // withCredentials
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (HomologaÃ§Ã£o Azure)
+[Pipeline] timeout
+Timeout set to expire in 20 min
+[Pipeline] {
+[Pipeline] node
+Running on linux-docker in /home/jenkins/agent/workspace/carparts-azure-demo
+[Pipeline] {
+[Pipeline] withCredentials
+Masking supported pattern matches of $AZURE_CLIENT_ID or $AZURE_CLIENT_SECRET or $AZURE_TENANT_ID or $AZURE_SUBSCRIPTION_ID
+[Pipeline] {
+[Pipeline] sh
++ set +x
+
+/ Running ..
+| Running ..
+\ Running ..
+- Running ..
+/ Running ..
+| Running ..
+curl: (22) The requested URL returned error: 503
+curl: (22) The requested URL returned error: 503
+[Pipeline] }
+[Pipeline] // withCredentials
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (AprovaÃ§Ã£o produÃ§Ã£o)
+[Pipeline] timeout
+Timeout set to expire in 2 days 0 hr
+[Pipeline] {
+[Pipeline] input
+Promover a mesma imagem validada em homologaÃ§Ã£o para produÃ§Ã£o?
+Aprovar publicaÃ§Ã£o or Abort
+Approved by admin
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] node
+Running on linux-docker in /home/jenkins/agent/workspace/carparts-azure-demo
+[Pipeline] {
+[Pipeline] echo
+AprovaÃ§Ã£o registrada por admin; imagem carparts26180842acr.azurecr.io/carparts-b2b-demo@sha256:8992b0d4ac6ba423f94d4b2396bfa52c70ee1b417c1867b2649e98e33917f18d
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (ProduÃ§Ã£o Azure)
+[Pipeline] timeout
+Timeout set to expire in 20 min
+[Pipeline] {
+[Pipeline] node
+Running on linux-docker in /home/jenkins/agent/workspace/carparts-azure-demo
+[Pipeline] {
+[Pipeline] withCredentials
+Masking supported pattern matches of $AZURE_CLIENT_ID or $AZURE_CLIENT_SECRET or $AZURE_TENANT_ID or $AZURE_SUBSCRIPTION_ID
+[Pipeline] {
+[Pipeline] sh
++ set +x
+
+/ Running ..
+| Running ..
+\ Running ..
+- Running ..
+/ Running ..
+| Running ..
+\ Running ..
+
+[Pipeline] echo
+ProduÃ§Ã£o: commit ea67aa45aca65fc25bd7e651049b98852c36c1c4; imagem carparts26180842acr.azurecr.io/carparts-b2b-demo@sha256:8992b0d4ac6ba423f94d4b2396bfa52c70ee1b417c1867b2649e98e33917f18d; aprovador null
+[Pipeline] }
+[Pipeline] // withCredentials
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] echo
+Build 2 concluÃ­do para commit ea67aa45aca65fc25bd7e651049b98852c36c1c4
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] End of Pipeline
+Finished: SUCCESS

@@ -1,0 +1,18 @@
+{
+  "job": "carparts-multibranch-local",
+  "source": "local read-only Git mirror /project-git",
+  "branches": [
+    {
+      "name": "main",
+      "number": 1,
+      "result": "SUCCESS",
+      "duration": 17613
+    },
+    {
+      "name": "lab-branch-demo",
+      "number": 1,
+      "result": "SUCCESS",
+      "duration": 5393
+    }
+  ]
+}

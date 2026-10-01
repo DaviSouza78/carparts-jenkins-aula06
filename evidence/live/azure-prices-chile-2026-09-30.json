@@ -1,0 +1,27 @@
+{
+  "region": "chilecentral",
+  "registry": [
+    {
+      "meterName": "Basic Registry Unit",
+      "unitPrice": 0.1666,
+      "unitOfMeasure": "1/Day"
+    },
+    {
+      "meterName": "Data Stored",
+      "unitPrice": 0.1,
+      "unitOfMeasure": "1 GB/Month"
+    }
+  ],
+  "containerApps": [
+    {
+      "meterName": "Standard vCPU Active Usage",
+      "unitPrice": 3.4e-05,
+      "unitOfMeasure": "1 Second"
+    },
+    {
+      "meterName": "Standard Memory Active Usage",
+      "unitPrice": 4e-06,
+      "unitOfMeasure": "1 GiB Second"
+    }
+  ]
+}

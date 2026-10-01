@@ -1,0 +1,45 @@
+{
+  "capturedAtUtc": "2026-10-01T01:33:39.245307+00:00",
+  "resourceGroup": "rg-carparts-aula06-26180842",
+  "registry": {
+    "name": "carparts26180842acr",
+    "loginServer": "carparts26180842acr.azurecr.io",
+    "sku": "Basic",
+    "adminUserEnabled": false
+  },
+  "apps": [
+    {
+      "name": "carparts-aula06-hml",
+      "location": "Chile Central",
+      "provisioningState": "Succeeded",
+      "fqdn": "carparts-aula06-hml.salmonhill-ec8d2d3a.chilecentral.azurecontainerapps.io",
+      "image": "carparts26180842acr.azurecr.io/carparts-b2b-demo@sha256:8992b0d4ac6ba423f94d4b2396bfa52c70ee1b417c1867b2649e98e33917f18d",
+      "managedIdentity": "SystemAssigned",
+      "minReplicas": 0,
+      "maxReplicas": 1
+    },
+    {
+      "name": "carparts-aula06-prd",
+      "location": "Chile Central",
+      "provisioningState": "Succeeded",
+      "fqdn": "carparts-aula06-prd.salmonhill-ec8d2d3a.chilecentral.azurecontainerapps.io",
+      "image": "carparts26180842acr.azurecr.io/carparts-b2b-demo@sha256:8992b0d4ac6ba423f94d4b2396bfa52c70ee1b417c1867b2649e98e33917f18d",
+      "managedIdentity": "SystemAssigned",
+      "minReplicas": 0,
+      "maxReplicas": 1
+    }
+  ],
+  "jenkinsBuild": {
+    "job": "carparts-azure-demo",
+    "number": 2,
+    "result": "SUCCESS"
+  },
+  "approval": {
+    "stage": "Aprovação produção",
+    "approver": "admin"
+  },
+  "credentialScope": [
+    "AcrPush no ACR",
+    "Container Apps Contributor somente nos dois aplicativos"
+  ]
+}
