@@ -2,7 +2,7 @@
 
 ```mermaid
 flowchart LR
-  DEV[4 desenvolvedores\n2 Windows 11 + WSL 2\n2 Ubuntu 24.04] -->|push / PR| GH[GitHub privado]
+  DEV[4 desenvolvedores\n2 Windows 11 + WSL 2\n2 Ubuntu 24.04] -->|push / PR| GH[GitHub público]
   GH -->|HTTPS 443 /github-webhook/\nHMAC e proxy apenas para webhook| PROXY[Proxy reverso na rede local]
   PROXY -->|HTTP 8080 interno| CTRL[Jenkins LTS 2.568.3\ncontroller em Docker on-premises\n0 executores, JENKINS_HOME em volume]
   CTRL -->|WebSocket HTTPS interno\nsem porta inbound 50000| LINUX[Agent linux-docker\nUbuntu/container, 2 executores\nDocker TLS 2376 em rede interna]
