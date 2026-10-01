@@ -22,7 +22,6 @@ services:
       - "127.0.0.1:8080:8080"
     volumes:
       - jenkins-data:/var/jenkins_home
-      - ./jenkins/controller/casc.yaml:/jenkins-config/casc.yaml:ro
       - ./.git:/project-git:ro
       - ./jenkins/gitconfig-lab:/etc/gitconfig:ro
     networks: [ci]
