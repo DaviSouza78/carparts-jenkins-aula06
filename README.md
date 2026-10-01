@@ -9,11 +9,11 @@ Projeto demonstrativo produzido para a atividade SAP1-DEVOPS, com API Node.js e 
 | E1 Arquitetura | `docs/E1-arquitetura.md`, `compose.yaml` | Controller local e agent Linux online; `evidence/live/nodes.json` mostra 0/2 executores |
 | E2 Controller | `jenkins/controller/Dockerfile`, `plugins.txt`, `casc.yaml` | Subida real em `evidence/live/controller-startup.log`; plugins diretos fixados por versão; sem acesso anônimo; nó interno com 0 executores |
 | E3 Pipeline | `Jenkinsfile`, `Dockerfile`, `src/`, `test/` | Onze builds locais consecutivos bem-sucedidos (#2–#12), quatro testes publicados no build #12, logs e artefato em `evidence/live/` |
-| E4 Azure | `azure/provision.sh`, `docs/E4-azure.md`, stages Azure no Jenkinsfile | Portal acessado; sem assinatura; **deploy remoto ainda não executado** |
-| E5 Multibranch | `docs/E5-github.md`, `infra/nginx-webhook.conf` | [Repositório privado](https://github.com/DaviSouza78/carparts-jenkins-aula06) e [PR #1](https://github.com/DaviSouza78/carparts-jenkins-aula06/pull/1) abertos; **webhook e check Jenkins remotos ainda não executados** |
-| E6 Métricas | `scripts/metrics.py`, `docs/E6-metricas.md` | Amostra atual de 12 builds locais: 11 sucessos, mediana 5,1 s; **métricas de produção pendentes** |
+| E4 Azure | `azure/provision.sh`, `docs/E4-azure.md`, stages Azure no Jenkinsfile | Build demonstrativo #2 publicou no ACR, testou homologação, registrou aprovação e promoveu o mesmo digest para produção; evidências em `evidence/live/azure-*`; recursos temporários excluídos após o teste |
+| E5 Multibranch | `docs/E5-github.md`, `jenkins/multibranch-local.xml`, `infra/nginx-webhook.conf` | `main` e `lab-branch-demo` descobertas automaticamente no Git local, dois builds Multibranch bem-sucedidos; [PR #1](https://github.com/DaviSouza78/carparts-jenkins-aula06/pull/1) aberto; **webhook e check Jenkins remotos ainda não executados** |
+| E6 Métricas | `scripts/metrics.py`, `docs/E6-metricas.md` | 12 builds locais: 11 sucessos, mediana 5,1 s; um deploy demonstrativo real com lead time limite de 3 h 20 min 35 s; série DORA de 10 deploys ainda pendente |
 
-A primeira execução falhou porque a opção `timestamps()` exigia um plugin não instalado. A opção foi removida, e as onze execuções seguintes passaram. Isso está preservado nos dados e logs; nenhuma implantação Azure foi simulada como execução real.
+A primeira execução local falhou porque a opção `timestamps()` exigia um plugin não instalado. A opção foi removida, e as onze execuções seguintes passaram. Depois, um job demonstrativo separado executou os stages Azure e terminou com sucesso no build #2. Esse job não representa um Multibranch com webhook; veja E5.
 
 ## Rodar localmente
 
@@ -48,6 +48,9 @@ O código está no [GitHub](https://github.com/DaviSouza78/carparts-jenkins-aula
 - `evidence/live/builds.json`: histórico da API Jenkins; `console-N.txt`: saída de cada build de laboratório.
 - `evidence/live/nodes.json`: executores do controller e agent; `test-report-12.json`: quatro testes, zero falhas; `build-artifact-12.json`: commit e imagem.
 - `evidence/live/app-smoke.json`: API iniciada em contêiner e endpoints verificados localmente.
-- `evidence/live/azure-prices-2026-09-30.json`: leitura da API oficial de preços em Brasil Sul. É referência de planejamento, não fatura.
+- `evidence/live/azure-deployment-summary.json`, `azure-health-*.json`, `azure-jenkins-build-2.log`: publicação real, aprovação, mesmo digest e smoke tests antes da limpeza.
+- `evidence/live/azure-cleanup.json`: verificação da remoção dos recursos e da identidade temporária.
+- `evidence/live/multibranch-local-*.log` e `multibranch-local-summary.json`: índice e builds das duas branches locais.
+- `evidence/live/azure-prices-chile-2026-09-30.json`: leitura da API oficial de preços na região usada. É referência de planejamento, não fatura.
 
 O material didático mais antigo (`Jenkins.pdf`) explica a automação e a ideia de pipeline, mas mostra fluxos Freestyle e Docker desatualizados. O PDF *Modern Jenkins Pipelines* sustenta pipeline como código, JCasC, controller/agents e integração Azure CLI. Para sintaxe e instalação atuais, confirme nas fontes oficiais: [Jenkins Docker](https://www.jenkins.io/doc/book/installing/docker/), [Pipeline Syntax](https://www.jenkins.io/doc/book/pipeline/syntax/), [JCasC](https://github.com/jenkinsci/configuration-as-code-plugin), [Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/), [cobrança Azure](https://learn.microsoft.com/en-us/azure/container-apps/billing).

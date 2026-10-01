@@ -23,6 +23,8 @@ services:
     volumes:
       - jenkins-data:/var/jenkins_home
       - ./jenkins/controller/casc.yaml:/jenkins-config/casc.yaml:ro
+      - ./.git:/project-git:ro
+      - ./jenkins/gitconfig-lab:/etc/gitconfig:ro
     networks: [ci]
     restart: unless-stopped
   agent:
@@ -40,6 +42,8 @@ services:
       - docker-certs:/certs/client:ro
       - agent-workspace:/home/jenkins/agent
       - ./:/project:ro
+      - ./.git:/project-git:ro
+      - ./jenkins/gitconfig-lab:/etc/gitconfig:ro
     depends_on:
       docker:
         condition: service_healthy

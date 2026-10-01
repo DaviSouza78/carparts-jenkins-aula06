@@ -23,7 +23,7 @@ pipeline {
         script {
           if (params.LAB_MODE) {
             sh 'cp -R /project/src /project/test /project/scripts /project/package.json /project/Dockerfile /project/.dockerignore ./'
-            env.SOURCE_COMMIT = sh(script: 'cd /project && git rev-parse HEAD', returnStdout: true).trim()
+            env.SOURCE_COMMIT = sh(script: 'cd /project && git -c safe.directory=/project rev-parse HEAD', returnStdout: true).trim()
           } else {
             checkout scm
             env.SOURCE_COMMIT = sh(script: 'git rev-parse HEAD', returnStdout: true).trim()
@@ -120,7 +120,10 @@ pipeline {
         submitter 'admin,release-managers'
         submitterParameter 'APPROVED_BY'
       }
-      steps { echo "Aprovação registrada por ${env.APPROVED_BY}; imagem ${env.IMAGE_REF}" }
+      steps {
+        script { env.RELEASE_APPROVER = env.APPROVED_BY }
+        echo "Aprovação registrada por ${env.RELEASE_APPROVER}; imagem ${env.IMAGE_REF}"
+      }
     }
     stage('Produção Azure') {
       when { beforeAgent true; allOf { branch 'main'; expression { return params.ENABLE_AZURE_DEPLOY } } }
@@ -141,7 +144,7 @@ pipeline {
               az containerapp update --name "$PRODUCTION_APP" --resource-group "$RESOURCE_GROUP" --image "$IMAGE_REF" --output none
             '
           '''
-          echo "Produção: commit ${env.SOURCE_COMMIT}; imagem ${env.IMAGE_REF}; aprovador ${env.APPROVED_BY}"
+          echo "Produção: commit ${env.SOURCE_COMMIT}; imagem ${env.IMAGE_REF}; aprovador ${env.RELEASE_APPROVER}"
         }
       }
     }
